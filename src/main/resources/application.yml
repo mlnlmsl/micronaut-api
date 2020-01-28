@@ -1,0 +1,29 @@
+micronaut:
+  application:
+    name: api
+    hibernate:
+      hbm2ddl:
+        auto: update
+      cache:
+        queries: false
+        use_second_level_cache: true
+        use_query_cache: false
+        region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+    dataSource:
+      url: jdbc:mysql://localhost:3306/go_rest
+      dbCreate: create-update
+      pooled: true
+      jmxExport: true
+      driverClassName: com.mysql.cj.jdbc.Driver
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      username: root
+      password:
+    jpa:
+      default:
+          packages-to-scan:
+              - 'api.models'
+          properties:
+              hibernate:
+                  hbm2ddl:
+                      auto: update
+                  show_sql: true
