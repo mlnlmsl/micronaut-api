@@ -1,14 +1,6 @@
 micronaut:
   application:
     name: api
-    hibernate:
-      hbm2ddl:
-        auto: update
-      cache:
-        queries: false
-        use_second_level_cache: true
-        use_query_cache: false
-        region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
   server:
     port: 8081
 datasources:
@@ -22,7 +14,7 @@ jpa:
       packages-to-scan:
           - 'api.models'
       properties:
-          hibernate:
-            properties:
-              hibernate:
-                show_sql: true
+        hibernate:
+          hbm2ddl:
+            auto: update
+          show_sql: true

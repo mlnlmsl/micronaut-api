@@ -13,7 +13,7 @@ import javax.inject.Inject;
 // import java.util.Optional;
 // import java.util.List;
 
-@Controller("/user")
+@Controller("/users")
 public class UserController {
 
     @Inject UserRepository userRepository;
@@ -27,5 +27,10 @@ public class UserController {
     @Get("/")
     public HttpResponse index() {
         return HttpResponse.ok().body(userRepository.findAll());
+    }
+
+    @Get("/{id}")
+    public HttpResponse index(int id){
+        return HttpResponse.ok().body(userRepository.findById(id));
     }
 }
