@@ -1,6 +1,7 @@
 package api.repositories;
 
 import api.models.User;
+import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.repository.CrudRepository;
 
 
@@ -9,8 +10,10 @@ import io.micronaut.data.repository.CrudRepository;
 //import java.util.List;
 //import java.util.Optional;
 
-
-public interface UserRepository extends CrudRepository<User, Long> {
-
-
+/**
+ * automatically implements all the crud operation in User model
+ * CrudRepository<MODEL_NAME, TYPE_OF_PRIMARY_KEY>
+ */
+@Repository
+public interface UserRepository extends CrudRepository<User, Integer> {
 }

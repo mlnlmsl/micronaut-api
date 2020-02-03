@@ -1,17 +1,14 @@
 package api.models;
 
-import io.micronaut.core.annotation.Introspected;
+// import io.micronaut.core.annotation.Introspected;
 
 import javax.persistence.*;
 
-@Introspected
-@Entity
-@Table(name = "user")
+@Entity(name = "user")
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name =  "id")
-    private Long id;
+    private int id;
 
     @Column(name= "fullname")
     private String fullname;
@@ -22,6 +19,13 @@ public class User{
     @Column(name = "email")
     private String email;
 
+    public int getId(){
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public void setFullname(String name){
         this.fullname = name;
     }
