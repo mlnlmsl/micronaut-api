@@ -6,6 +6,7 @@ import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.Delete;
 // import io.micronaut.http.HttpStatus;
 import api.repositories.ProductRepository;
 import javax.inject.Inject;
@@ -23,5 +24,11 @@ public class ProductController {
     public HttpResponse save(@Body @Valid Product prod){
         productRepo.save(prod);
         return HttpResponse.ok().body("Saved");
+    }
+
+    @Delete("/{id}")
+    public HttpResponse delete(Long id){
+        productRepo.deleteById(id);
+        return HttpResponse.ok().body("Deleted");
     }
 }
